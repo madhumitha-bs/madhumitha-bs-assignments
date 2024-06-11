@@ -1,4 +1,3 @@
-# require 'player'
 require_relative 'player'
 require_relative 'dice'
 
@@ -11,7 +10,8 @@ end
 class Game 
     attr_accessor :players, :finalRound, :lastRound
     def score(dice)
-        # You need to write this method
+        # It calculates the score, when triplets, 1, 5 are encoutered, they are added added to score and removed from array. 
+        # Non scoring values like 2, 3 are left out in the array 
         count1 = 0;
         count2 = 0;
         count3 = 0;
@@ -78,7 +78,6 @@ class Game
           count1 = count1 - 1
           delete_first_occurrence(dice,1) # Delete 1st occurance
         end
-      
         while(count5 != 0)
           result = result + 50
           count5 = count5 - 1
@@ -92,8 +91,7 @@ class Game
         @finalRound = false
         @lastRound = false
         numberOfPlayers.times do |i| 
-            @players << Player.new(i+1)
-            puts players[i].playerID
+            @players << Player.new(i+1) #Players for the game are created
         end
     end    
 
@@ -102,49 +100,48 @@ class Game
         turn = 1
         dice = DiceSet.new
 
-        while @finalRound == false || @lastRound==false
+        while @finalRound == false || @lastRound==false 
             if @finalRound == true 
-                @lastRound = true
+                @lastRound = true #to run one last turn for all players and exit the while loop
             end    
             puts "Turn #{turn}:"
             puts "--------"
-            @players.size.times do |i|
-                # puts "Player #{players[i].playerID} rolling 5 dices" 
-                dice.roll(5)
-                puts "Player #{players[i].playerID} rolls: #{dice.values}"
-                tempScore = score(dice.values)
-                puts "Score in this round: #{tempScore}"
-                puts "Total score: #{players[i].totalScore}"
-                turnEnded = false
-                if tempScore == 0
-                    turnEnded = true
-                end    
-                while turnEnded == false
-                    numberOfDiceToRoll = dice.values.size
-                    if numberOfDiceToRoll == 0
-                        numberOfDiceToRoll = 5
-                    end   
-                    puts "Do you want to roll the non-scoring #{numberOfDiceToRoll} dice? (y/n): "
-                    roll = gets().chomp()
-                    if roll == "y"
-                        dice.roll(numberOfDiceToRoll)
-                        tempScore2 = score(dice.values)
-                        puts "Score in this round: #{tempScore2}"
-                        if(tempScore2==0)
-                            turnEnded = true
-                        else
-                            tempScore+=tempScore2    
-                        end
+            @players.size.times do |i| #To generate a turn for each player
+              dice.roll(5)
+              puts "Player #{players[i].playerID} rolls: #{dice.values}"
+              tempScore = score(dice.values) #dice.values will only comtain non scoring values after calling score
+              puts "Score in this round: #{tempScore}"
+              puts "Total score: #{players[i].totalScore}"
+              turnEnded = false 
+              if tempScore == 0 #Current turn if end only of all the sides are non scoring
+                  turnEnded = true
+              end    
+              while turnEnded == false #this loop is to prompt the player to roll for subsequent non scoring dices
+                numberOfDiceToRoll = dice.values.size
+                if numberOfDiceToRoll == 0  #If the player gets all scoring sides, he gets to roll all 5 again
+                    numberOfDiceToRoll = 5
+                end   
+                puts "Do you want to roll the non-scoring #{numberOfDiceToRoll} dice? (y/n): "
+                roll = gets().chomp()
+                if roll == "y"
+                    dice.roll(numberOfDiceToRoll)
+                    tempScore2 = score(dice.values)
+                    puts "Score in this round: #{tempScore2}"
+                    if(tempScore2==0)
+                        turnEnded = true #We are not adding the score to the player as he got all non scoring sides and he loses the turn
                     else
-                        players[i].totalScore += tempScore
-                        if players[i].totalScore>=3000 
-                            @finalRound = true
-                        end
-                        turnEnded = true
+                        tempScore+=tempScore2    #tempScore2 -  the score of each chance | tempScore - score of each turn(Accumulated score)
                     end
-                end    
-                # puts "Player #{players[i].playerID} TOTAL current score: #{players[i].totalScore}"
-                puts "Total score: #{players[i].totalScore}"
+                else
+                    players[i].totalScore += tempScore
+                    if players[i].totalScore>=3000 
+                        @finalRound = true
+                    end
+                    turnEnded = true
+                end
+              end    
+              # puts "Player #{players[i].playerID} TOTAL current score: #{players[i].totalScore}"
+              puts "Total score: #{players[i].totalScore}"
             end    
             turn = turn + 1
             # puts "Final round = #{finalRound}"
@@ -157,9 +154,7 @@ class Game
     end   
 end    
 
-puts "Enter number of players: "
-Game.new(gets().chomp().to_i).start()
-
-
-
-
+if __FILE__ == $0 #this blocks is executed only when game.rb is called
+  puts "Enter number of players: "
+  Game.new(gets().chomp().to_i).start()
+end
