@@ -1,4 +1,3 @@
-@flipkart_search
 Feature: Flipkart Product Search
 
   Scenario Outline: Search for a product
