@@ -1,9 +1,9 @@
 Feature: Flipkart Product Search
 
   Scenario Outline: Search for a product
-    Given I am on the Flipkart homepage
-    When I search for "<product>"
-    Then I should see search results for "<product>"
+    Given User is on the Flipkart homepage
+    When User search for "<product>"
+    Then User should see search results for "<product>"
   
   Examples:
       | product       |
