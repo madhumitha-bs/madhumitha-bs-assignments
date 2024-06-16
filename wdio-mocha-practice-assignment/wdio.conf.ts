@@ -159,7 +159,6 @@ import { RemoteOptions } from 'webdriverio';
         },
         addFileAttribute: true,
     }],],
-
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
