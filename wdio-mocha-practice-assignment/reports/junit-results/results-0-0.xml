@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0" errors="0" skipped="0">
+  <testsuite name="Verify the user is able to search a product" timestamp="2024-06-16T23:15:03" time="12.498" tests="1" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="Verify the user is able to search a product"/>
+      <property name="capabilities" value="chrome.126_0_6478_57.windows"/>
+      <property name="file" value="file:///Users/madhumithav/Documents/bs%20repos/madhumitha-bs-assignments/wdio-mocha-practice-assignment/test/specs/test.e2e.ts"/>
+    </properties>
+    <testcase classname="chrome.126_0_6478_57.windows.Verify_the_user_is_able_to_search_a_product" name="the user should see the search product on the results page" time="11.984" file="file:///Users/madhumithav/Documents/bs%20repos/madhumitha-bs-assignments/wdio-mocha-practice-assignment/test/specs/test.e2e.ts">
+      <system-out><![CDATA[
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/execute/sync - {"script":"browserstack_executor: {\"action\":\"annotate\",\"arguments\":{\"data\":\"Test: the user should see the search product on the results page\",\"level\":\"info\"}}","args":[]}
+RESULT: {"script":"browserstack_executor: {\"action\":\"annotate\",\"arguments\":{\"data\":\"Test: the user should see the search product on the results page\",\"level\":\"info\"}}","args":[]}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element - {"using":"css selector","value":"[name=q]"}
+RESULT: {"using":"css selector","value":"[name=q]"}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/execute/sync - {"script":"return (function isElementDisplayed(element) {\n    function nodeIsElement(node) {\n        if (!node) {\n            return false;\n        }\n        switch (node.nodeType) {\n            case Node.ELEMEN ... (8289 more bytes)","args":[{"element-6066-11e4-a52e-4f735466cecf":"f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90","ELEMENT":"f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90"}]}
+RESULT: {"script":"return (function isElementDisplayed(element) {\n    function nodeIsElement(node) {\n        if (!node) {\n            return false;\n        }\n        switch (node.nodeType) {\n            case Node.ELEMEN ... (8289 more bytes)","args":[{"element-6066-11e4-a52e-4f735466cecf":"f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90","ELEMENT":"f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90"}]}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element/f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90/clear - {}
+RESULT: {}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element/f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90/value - {"text":"Laptop"}
+RESULT: {"text":"Laptop"}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element/f.D00699D70D23D9868053B1560A140CA3.d.6B27CC8AB1ECEB60055A1C89BF4DC433.e.90/value - {"text":""}
+RESULT: {"text":""}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element - {"using":"css selector","value":".BUOuZu"}
+RESULT: {"using":"css selector","value":".BUOuZu"}
+COMMAND: POST /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/execute/sync - {"script":"return (function isElementDisplayed(element) {\n    function nodeIsElement(node) {\n        if (!node) {\n            return false;\n        }\n        switch (node.nodeType) {\n            case Node.ELEMEN ... (8289 more bytes)","args":[{"element-6066-11e4-a52e-4f735466cecf":"f.D00699D70D23D9868053B1560A140CA3.d.4A0228235E69A98B92D6B60C94E0EB27.e.381","ELEMENT":"f.D00699D70D23D9868053B1560A140CA3.d.4A0228235E69A98B92D6B60C94E0EB27.e.381"}]}
+RESULT: {"script":"return (function isElementDisplayed(element) {\n    function nodeIsElement(node) {\n        if (!node) {\n            return false;\n        }\n        switch (node.nodeType) {\n            case Node.ELEMEN ... (8289 more bytes)","args":[{"element-6066-11e4-a52e-4f735466cecf":"f.D00699D70D23D9868053B1560A140CA3.d.4A0228235E69A98B92D6B60C94E0EB27.e.381","ELEMENT":"f.D00699D70D23D9868053B1560A140CA3.d.4A0228235E69A98B92D6B60C94E0EB27.e.381"}]}
+COMMAND: GET /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element/f.D00699D70D23D9868053B1560A140CA3.d.4A0228235E69A98B92D6B60C94E0EB27.e.381/text - {}
+RESULT: {}
+COMMAND: GET /session/719aa8870ae334fa87c255518afa6c13bc04f8a3/element/f.D00699D70D23D9868053B1560A140CA3.d.4A0228235E69A98B92D6B60C94E0EB27.e.381/text - {}
+RESULT: {}
+COMMAND: DELETE /session/719aa8870ae334fa87c255518afa6c13bc04f8a3 - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
