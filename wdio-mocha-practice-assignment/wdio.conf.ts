@@ -7,13 +7,13 @@ import { RemoteOptions } from 'webdriverio';
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     // runner: 'local',
-    // autoCompileOpts: {
-    //     autoCompile: true,
-    //     tsNodeOpts: {
-    //         project: './tsconfig.json',
-    //         transpileOnly: true
-    //     }
-    // },
+    autoCompileOpts: {
+        autoCompile: true,
+        tsNodeOpts: {
+            project: './tsconfig.json',
+            transpileOnly: true
+        }
+    },
     
     //
     // ==================
@@ -152,7 +152,13 @@ import { RemoteOptions } from 'webdriverio';
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec',['junit', {
+        outputDir: './reports/junit-results/',
+        outputFileFormat: function(options) { // optional
+            return `results-${options.cid}.xml`;
+        },
+        addFileAttribute: true,
+    }],],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
