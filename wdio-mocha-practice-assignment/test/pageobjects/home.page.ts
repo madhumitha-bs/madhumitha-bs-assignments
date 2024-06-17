@@ -44,8 +44,6 @@ class HomePage extends Page {
     public async searchProduct(productName:string){
         const searchBtn= await this.searchButton;
         await searchBtn.waitForDisplayed();
-        browser.pause
-        console.log("is element visible" , searchBtn.isElementDisplayed);
         await searchBtn.setValue(productName); //Enter the product name
         await searchBtn.addValue('\uE007');  // Simulate pressing the Enter key
     }

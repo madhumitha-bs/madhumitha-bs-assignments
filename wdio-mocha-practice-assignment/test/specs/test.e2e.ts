@@ -17,9 +17,5 @@ describe('Verify the user is able to search a product', () => {
         expect(spanText).toContain("Showing")
         expect(spanText).toContain(" results for \"Laptop\"")
     })
-
-    after(async () => {
-        console.log("End of Test")
-    });
 })
 
