@@ -13,3 +13,4 @@ export default class Page {
         return browser.url(`/${path}`)
     }
 }
+

@@ -27,3 +27,4 @@ class ResultsPage extends Page {
 }
 
 export default new ResultsPage();
+
