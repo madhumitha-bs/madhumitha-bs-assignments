@@ -48,8 +48,6 @@ import { RemoteOptions } from 'webdriverio';
             'resolution': '1920x1080' 
         }
       }],
-    user:  'madhumithavenkat_ZxvnWs',
-    key: 'ZFSDzYSPMrBXSRBq9oHx',
     hostname: 'hub.browserstack.com',
     services: ['browserstack'],
     
