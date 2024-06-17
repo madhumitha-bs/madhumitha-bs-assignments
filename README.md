@@ -1,4 +1,6 @@
 # madhumitha-bs-assignments
 
-Adding a line to test webhooks
-Try2
+This Project contain the following assignments:
+1. JS practice assignment
+2. Cucumber-Ruby assignment
+3.WDIO-mocha-practice-assignent
