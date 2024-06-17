@@ -20,8 +20,6 @@ class ResultsPage extends Page {
   public async getSearchResultSpan(): Promise<string> {
     const spanText = await this.getSpanText;
     await spanText.waitForDisplayed();
-    const spanTextVal = await spanText.getText();
-    console.log("text from browser", spanTextVal);
     return spanText.getText();
   }
 }

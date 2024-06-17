@@ -330,5 +330,9 @@ const buildName = `Build ${currentDateTime} for WebdriverIO Mocha`;
     */
     // afterAssertion: function(params) {
     // }
+
+    after: async function () {
+        console.log('End of Test');
+    }
 }
 
