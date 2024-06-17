@@ -32,7 +32,6 @@ import { RemoteOptions } from 'webdriverio';
     //
     
     capabilities: [{
-        //'bstack:options': bstack_options['bstack:options']
         'bstack:options': {
             'os': 'Windows',
             'osVersion': '10',
