@@ -325,3 +325,4 @@ import { RemoteOptions } from 'webdriverio';
     // afterAssertion: function(params) {
     // }
 }
+
