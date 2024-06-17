@@ -1,4 +1,11 @@
 import { RemoteOptions } from 'webdriverio';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
+
+const currentDateTime = new Date().toISOString();
+const buildName = `Build ${currentDateTime} for WebdriverIO Mocha`;
 
     export const config: RemoteOptions = {
     //
@@ -38,8 +45,7 @@ import { RemoteOptions } from 'webdriverio';
             'browserName': 'Chrome',
             'browserVersion': 'latest',
             'projectName': 'My WebdriverIO Mocha Test Project',
-            'buildName': 'Build 5 for WebdriverIO Mocha ',
-            'sessionName': 'Session 5.11',
+            'buildName': buildName,
             'local': false,
             'networkLogs': true,
             'video': true, 
@@ -48,6 +54,8 @@ import { RemoteOptions } from 'webdriverio';
             'resolution': '1920x1080' 
         }
       }],
+    user: process.env.BROWSERSTACK_USER,
+    key: process.env.BROWSERSTACK_KEY,
     hostname: 'hub.browserstack.com',
     services: ['browserstack'],
     
