@@ -5,5 +5,3 @@ class Player
         @totalScore = 0
     end    
 end
-# p = Player.new()
-# puts p.playerID, p.totalScore
