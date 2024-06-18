@@ -1,91 +1,115 @@
 require_relative 'player'
 require_relative 'dice'
 
-def delete_first_occurrence(array, element)
-    index = array.index(element)
-    array.delete_at(index) if index
-    array
-end
+# def delete_first_occurrence(array, element)
+#     index = array.index(element)
+#     array.delete_at(index) if index
+#     array
+# end
 
 class Game 
     attr_accessor :players, :finalRound, :lastRound
-    def score(dice)
-        # It calculates the score, when triplets, 1, 5 are encoutered, they are added added to score and removed from array. 
-        # Non scoring values like 2, 3 are left out in the array 
-        count1 = 0;
-        count2 = 0;
-        count3 = 0;
-        count4 = 0;
-        count5 = 0;
-        count6 = 0;
-        result = 0;
-        for i in dice
-          if(i==1)
-            count1 = count1 + 1
-          elsif(i==2)
-            count2 = count2 + 1
-          elsif(i==3)
-            count3 = count3 + 1
-          elsif(i==4)
-            count4 = count4 + 1
-          elsif(i==5)
-            count5 = count5 + 1
-          elsif(i==6)
-            count6 = count6 + 1
-          end
-        end
-        if(count1 >= 3) 
-          result = result + 1000
-          count1 = count1 - 3 #case Three 1s 
-          delete_first_occurrence(dice,1) # Delete 1st occurance
-          delete_first_occurrence(dice,1) # Delete 2nd occurance
-          delete_first_occurrence(dice,1) # Delete 3rd occurance
-        end
-        if(count2 >= 3) 
-          result = result + 200
-          delete_first_occurrence(dice,2) # Delete 1st occurance
-          delete_first_occurrence(dice,2) # Delete 2nd occurance
-          delete_first_occurrence(dice,2) # Delete 3rd occurance
-        end
-        if(count3 >= 3)
-          result = result + 300
-          delete_first_occurrence(dice,3) # Delete 1st occurance
-          delete_first_occurrence(dice,3) # Delete 2nd occurance
-          delete_first_occurrence(dice,3) # Delete 3rd occurance
-        end
-        if(count4 >= 3)
-          result = result + 400
-          delete_first_occurrence(dice,4) # Delete 1st occurance
-          delete_first_occurrence(dice,4) # Delete 2nd occurance
-          delete_first_occurrence(dice,4) # Delete 3rd occurance
-        end
-        if(count5 >= 3)
-          result = result + 500
-          count5 = count5 - 3
-          delete_first_occurrence(dice,5) # Delete 1st occurance
-          delete_first_occurrence(dice,5) # Delete 2nd occurance
-          delete_first_occurrence(dice,5) # Delete 3rd occurance
-        end
-        if(count6 >= 3)
-          result = result + 600
-          delete_first_occurrence(dice,6) # Delete 1st occurance
-          delete_first_occurrence(dice,6) # Delete 2nd occurance
-          delete_first_occurrence(dice,6) # Delete 3rd occurance
-        end
+    # def score(dice)
+    #     # It calculates the score, when triplets, 1, 5 are encoutered, they are added added to score and removed from array. 
+    #     # Non scoring values like 2, 3 are left out in the array 
+    #     count1 = 0;
+    #     count2 = 0;
+    #     count3 = 0;
+    #     count4 = 0;
+    #     count5 = 0;
+    #     count6 = 0;
+    #     result = 0;
+    #     for i in dice
+    #       if(i==1)
+    #         count1 = count1 + 1
+    #       elsif(i==2)
+    #         count2 = count2 + 1
+    #       elsif(i==3)
+    #         count3 = count3 + 1
+    #       elsif(i==4)
+    #         count4 = count4 + 1
+    #       elsif(i==5)
+    #         count5 = count5 + 1
+    #       elsif(i==6)
+    #         count6 = count6 + 1
+    #       end
+    #     end
+    #     if(count1 >= 3) 
+    #       result = result + 1000
+    #       count1 = count1 - 3 #case Three 1s 
+    #       delete_first_occurrence(dice,1) # Delete 1st occurance
+    #       delete_first_occurrence(dice,1) # Delete 2nd occurance
+    #       delete_first_occurrence(dice,1) # Delete 3rd occurance
+    #     end
+    #     if(count2 >= 3) 
+    #       result = result + 200
+    #       delete_first_occurrence(dice,2) # Delete 1st occurance
+    #       delete_first_occurrence(dice,2) # Delete 2nd occurance
+    #       delete_first_occurrence(dice,2) # Delete 3rd occurance
+    #     end
+    #     if(count3 >= 3)
+    #       result = result + 300
+    #       delete_first_occurrence(dice,3) # Delete 1st occurance
+    #       delete_first_occurrence(dice,3) # Delete 2nd occurance
+    #       delete_first_occurrence(dice,3) # Delete 3rd occurance
+    #     end
+    #     if(count4 >= 3)
+    #       result = result + 400
+    #       delete_first_occurrence(dice,4) # Delete 1st occurance
+    #       delete_first_occurrence(dice,4) # Delete 2nd occurance
+    #       delete_first_occurrence(dice,4) # Delete 3rd occurance
+    #     end
+    #     if(count5 >= 3)
+    #       result = result + 500
+    #       count5 = count5 - 3
+    #       delete_first_occurrence(dice,5) # Delete 1st occurance
+    #       delete_first_occurrence(dice,5) # Delete 2nd occurance
+    #       delete_first_occurrence(dice,5) # Delete 3rd occurance
+    #     end
+    #     if(count6 >= 3)
+    #       result = result + 600
+    #       delete_first_occurrence(dice,6) # Delete 1st occurance
+    #       delete_first_occurrence(dice,6) # Delete 2nd occurance
+    #       delete_first_occurrence(dice,6) # Delete 3rd occurance
+    #     end
       
-        while(count1 != 0)
-          result = result + 100
-          count1 = count1 - 1
-          delete_first_occurrence(dice,1) # Delete 1st occurance
+    #     while(count1 != 0)
+    #       result = result + 100
+    #       count1 = count1 - 1
+    #       delete_first_occurrence(dice,1) # Delete 1st occurance
+    #     end
+    #     while(count5 != 0)
+    #       result = result + 50
+    #       count5 = count5 - 1
+    #       delete_first_occurrence(dice,5) # Delete 1st occurance
+    #     end
+    #     return result
+    # end
+    def score(dice)
+      counts = Hash.new(0)  # Initialize a hash with default value 0
+      result = 0
+    
+      # Count the occurrences of each dice value
+      dice.each { |value| counts[value] += 1 }
+    
+      # Calculate the score for three of a kind
+      counts.each do |value, count|
+        if count >= 3
+          result += case value
+                    when 1 then 1000
+                    else value * 100
+                    end
+          counts[value] -= 3  # Remove three of a kind from count
         end
-        while(count5 != 0)
-          result = result + 50
-          count5 = count5 - 1
-          delete_first_occurrence(dice,5) # Delete 1st occurance
-        end
-        return result
+      end
+    
+      # Calculate the score for remaining 1s and 5s
+      result += counts[1] * 100
+      result += counts[5] * 50
+    
+      result
     end
-
+    
     def initialize(numberOfPlayers)
         @players = []
         @finalRound = false
