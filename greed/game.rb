@@ -143,6 +143,7 @@ class Game
               puts "Total score: #{players[i].totalScore}"
             end    
             turn = turn + 1
+            
             # puts "**********************************************"
             puts "\n"
         end
