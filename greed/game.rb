@@ -140,11 +140,9 @@ class Game
                     turnEnded = true
                 end
               end    
-              # puts "Player #{players[i].playerID} TOTAL current score: #{players[i].totalScore}"
               puts "Total score: #{players[i].totalScore}"
             end    
             turn = turn + 1
-            # puts "Final round = #{finalRound}"
             # puts "**********************************************"
             puts "\n"
         end
