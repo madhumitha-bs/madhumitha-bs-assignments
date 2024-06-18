@@ -1,0 +1,10 @@
+# Rakefile
+
+# Define a task named :run_script
+desc "Run the Ruby script"
+task :run_script do
+  ruby "../greed/game.rb"
+end
+
+# Define the default task
+task default: :run_script
