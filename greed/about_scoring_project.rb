@@ -29,61 +29,82 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 # Your goal is to write the score method.
 
+# def score(dice)
+#   count1 = 0;
+#   count2 = 0;
+#   count3 = 0;
+#   count4 = 0;
+#   count5 = 0;
+#   count6 = 0;
+#   result = 0;
+#   for i in dice
+#     if(i==1)
+#       count1 = count1 + 1
+#     elsif(i==2)
+#       count2 = count2 + 1
+#     elsif(i==3)
+#       count3 = count3 + 1
+#     elsif(i==4)
+#       count4 = count4 + 1
+#     elsif(i==5)
+#       count5 = count5 + 1
+#     elsif(i==6)
+#       count6 = count6 + 1
+#     end
+#   end
+#   if(count1 >= 3) 
+#     result = result + 1000
+#     count1 = count1 - 3 #case Three 1s 
+#   end
+#   if(count2 >= 3) 
+#     result = result + 200
+#   end
+#   if(count3 >= 3)
+#     result = result + 300
+#   end
+#   if(count4 >= 3)
+#     result = result + 400
+#   end
+#   if(count5 >= 3)
+#     result = result + 500
+#     count5 = count5 - 3
+#   end
+#   if(count6 >= 3)
+#     result = result + 600
+#   end
+
+#   while(count1 != 0)
+#     result = result + 100
+#     count1 = count1 - 1
+#   end
+
+#   while(count5 != 0)
+#     result = result + 50
+#     count5 = count5 - 1
+#   end
+#   return result
+# end
+
 def score(dice)
-  # You need to write this method
-  count1 = 0;
-  count2 = 0;
-  count3 = 0;
-  count4 = 0;
-  count5 = 0;
-  count6 = 0;
-  result = 0;
-  for i in dice
-    if(i==1)
-      count1 = count1 + 1
-    elsif(i==2)
-      count2 = count2 + 1
-    elsif(i==3)
-      count3 = count3 + 1
-    elsif(i==4)
-      count4 = count4 + 1
-    elsif(i==5)
-      count5 = count5 + 1
-    elsif(i==6)
-      count6 = count6 + 1
+  counts = Hash.new(0) # Initialize a hash with default value 0
+  result = 0
+
+  # Count the occurrences of each number in the dice array
+  dice.each { |num| counts[num] += 1 }
+
+  # Calculate the score for triplets
+  counts.each do |num, count|
+    if count >= 3
+      result += (num == 1 ? 1000 : num * 100)
+      counts[num] -= 3
     end
   end
-  if(count1 >= 3) 
-    result = result + 1000
-    count1 = count1 - 3 #case Three 1s 
-  end
-  if(count2 >= 3) 
-    result = result + 200
-  end
-  if(count3 >= 3)
-    result = result + 300
-  end
-  if(count4 >= 3)
-    result = result + 400
-  end
-  if(count5 >= 3)
-    result = result + 500
-    count5 = count5 - 3
-  end
-  if(count6 >= 3)
-    result = result + 600
-  end
 
-  while(count1 != 0)
-    result = result + 100
-    count1 = count1 - 1
-  end
+  # Calculate the score for remaining ones and fives
+  result += counts[1] * 100
+  result += counts[5] * 50
 
-  while(count5 != 0)
-    result = result + 50
-    count5 = count5 - 1
-  end
-  return result
+  result
 end
 
 class AboutScoringProject < Neo::Koan
