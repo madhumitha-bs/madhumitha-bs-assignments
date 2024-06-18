@@ -75,5 +75,20 @@ describe Game do
 				expect(@game1.score([2,2,2,5,1,3,4])).to eq(350)
 			end
 		end
+		context "passing non-dice values" do
+			it "verify if the score is 0" do
+				expect(@game1.score([7])).to eq(0)
+			end
+		end	
+		context "passing negative values" do
+			it "verify if the score is 0" do
+				expect(@game1.score([-1])).to eq(0)
+			end
+		end	
+		context "passing no value" do
+			it "verify if the score is 0" do
+				expect(@game1.score([])).to eq(0)
+			end	
+		end
 	end
 end
